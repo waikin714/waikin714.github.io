@@ -1,0 +1,121 @@
+body {
+	background-color: #dedede;
+	font-size: 14px;
+}
+nav {
+	background-color: #333;
+}
+
+nav h1 {
+	color: red;
+	margin-left: 2rem;
+	padding-top: 1rem;
+	display: inline-block;
+}
+nav ul {
+	display: inline-block;
+	
+	float: right;
+}
+
+ul{
+	list-style-type: none;
+}
+nav a {
+	color: white;
+	display: inline-block;
+	margin: 1rem;
+    text-decoration: none;	
+}
+nav a:active{
+	color: grey;
+}
+
+
+.content {
+	background-color: white;
+	margin: 2rem 1rem 2rem 1rem;
+	padding: 1rem 2rem 1rem 1.5rem;
+	border-right: medium solid grey;
+	border-bottom: medium solid grey;
+}
+
+.content h2{
+	color: #637083;
+}
+
+.content .author, .content .createTime{
+	color: hsl(290, 0%, 50%);
+	display: inline;
+}
+
+.content p { 
+	text-indent: 2em;
+}
+.picture {
+	border: 1px solid black;
+	display: table;
+	width: 10rem;
+	padding: 0rem 0rem 1rem 0rem;
+	
+	clear: left;
+
+}
+.picture img {
+	width: 80%;
+	display: block;
+	margin: auto;
+}
+.content .picture p{
+	text-indent: 0em;
+	text-align: center;
+}
+
+table {
+	width: 100%;
+}
+th {
+	background-color: hsl(0, 0%, 0%);
+	color: white;
+	text-align: left;
+}
+#firstTable tr:last-child {
+	background: hsl(0, 0%, 80%);
+	border: 0px;
+	border-color: hsl(0, 0%, 80%);;
+}
+
+#sideTitle {
+	display: inline-block;
+	padding-left: 1rem;
+	border-left: 2px solid grey;
+}
+.column1{
+	text-align: right;
+	width: 40%;
+	vertical-align: top;
+}
+ .notice{
+ 	text-indent: 0em;
+ 	text-align: left;	
+ 	color: grey;
+ }
+textarea{
+	width: 90%;
+	height: 10rem;
+}
+button {
+	width: 100%;
+	background-color: hsl(230, 63%, 54%);
+	color: white;
+	height: 3rem;
+	font-size: 1.2rem;
+	border-radius: 10px;
+
+}
+footer{
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding:1rem 0rem 2rem 0rem;
+}

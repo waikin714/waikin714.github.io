@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+
+}
+body {
+	font-size: 14px;
+	margin: 20px;
+
+	
+}
+
+.content {
+	background-color: #eee;
+	margin: 20px;
+	border: 1px solid #999;
+
+}
+.pic{
+	height: 80px;
+	width: 80ox;
+	display: inline-block;
+}
+div {
+	padding: 20px;
+}
+span {
+	vertical-align: top;
+}
+.right, .main, .left{
+	background-color: white;
+	display: inline-block;
+	overflow: auto;
+	vertical-align: top;
+}
+.left{
+	width: 200px;
+}
+.left > p{
+	display: inline-block;
+	vertical-align: top;
+}
+.main{
+	width: calc(100% - 200px - 120px - 40px);
+	padding: 20px;
+	min-width: 200px;
+}
+.right{
+	width: 120px;
+}

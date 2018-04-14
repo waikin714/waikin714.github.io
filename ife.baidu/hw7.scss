@@ -1,0 +1,110 @@
+@mixin size($width, $height){
+    width: $width;
+    height: $height;
+}
+@mixin pos($top, $left){
+    top: $top;
+    left: $left;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+$black: #000000;
+$grey: #b0b1b6;
+$red: #e8625b;
+$white: #fff;
+
+.wrapper{
+    //display: flex;
+    //flex-direction: column;
+}
+
+header{
+    display: flex;
+    
+    @mixin divStyle{
+        display: flex;
+        align-items: center;
+        padding: 0.3rem 1rem;
+    }
+
+    >div:nth-child(1){
+        @include divStyle;
+        margin-right: auto;
+        span{
+            color: $black;
+        }
+    }
+
+    .link{
+        @include divStyle;
+        span {
+            margin: auto;
+            color: $grey;
+            &:hover{
+                color: $red;   
+            }
+        }
+        &:hover{
+            border-bottom: 0.2rem solid $red;
+        }
+    }
+}
+
+.cover{
+    position: relative;
+    img{
+        @include size(100%, auto);
+    }
+    
+    $fontSize: 1.2rem;
+
+    .wrapper2{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        @include pos(26rem, 5rem);
+    }
+
+    .title, .content, button{
+        color: $white;
+    } 
+    .title{
+        font-size: $fontSize * 3;
+    }
+    .content{
+        font-size: $fontSize;
+    }
+    button{
+        font-size: $fontSize * 1.5;
+        background-color: $red;
+        position: absolute;
+        @include pos(15rem, 0rem);
+        @include size(20rem, 4rem);
+        border: 0px;
+    }
+}
+
+.idea{
+    display: flex;
+    flex-direction: row;
+    //justify-content: center;
+
+    div{
+        padding: 2rem;
+        text-align: center;
+        color: $grey;
+    }
+    .text{
+        border-right: 1px solid black;
+    }
+    img{
+        display: inline-block;
+        vertical-align: middle;
+    }    
+    
+    
+}
