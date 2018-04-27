@@ -13,8 +13,10 @@
 }
 
 $black: #000000;
+$lightGrey: #e3e3e5;
 $grey: #b0b1b6;
 $red: #e8625b;
+$darkRed: #cc393e;
 $white: #fff;
 
 .wrapper{
@@ -51,6 +53,9 @@ header{
         &:hover{
             border-bottom: 0.2rem solid $red;
         }
+    }
+    img{
+        @include size(2rem, auto);
     }
 }
 
@@ -91,20 +96,226 @@ header{
 .idea{
     display: flex;
     flex-direction: row;
-    //justify-content: center;
-
+    justify-content: center;
+    
     div{
-        padding: 2rem;
+        margin-bottom: 2rem;
+        padding: 2rem 0rem;
         text-align: center;
         color: $grey;
+        
+        .text{
+            border-left: 1px solid black;
+            padding: 0rem 2rem;
+        }
+
+        &:first-child{
+            div:nth-child(2){
+                border-left: 0px;    
+            }   
+        }
     }
-    .text{
-        border-right: 1px solid black;
-    }
+
     img{
         display: inline-block;
         vertical-align: middle;
     }    
+}
+
+.question{
+    text-align: center;
+    background-color: #ededed;
+    padding: 5rem 0rem;
+    img{
+        @include size(8rem, auto);
+        margin-bottom: 3rem;
+
+    }
+    p{
+        color: #a3a3a3;
+        font-size: 3rem;
+    }
+}
+
+.findActivity{
+    position: relative;
+    @include size(100%, 400px);
+    background-image: linear-gradient(rgba(255,0,0, .1), rgba(255,0,0, .1)), url("https://i.imgur.com/gaTB5tK.jpg?1");
+    background-position: 30% 0%; 
+    text-align: center;
+    padding: 5rem 0rem;
+   
+    .title{
+        color: $white;
+        font-size: 2rem;
+    }
+    .note{
+        color: rgba(255, 255, 255, .8);
+        font-size: .5rem;
+        margin: 1rem 0rem;
+    }
+    $drowDownItemHeight: 2rem;
+    $dropDownItemWidth: 20rem;
+    .flex{
+        margin-top: 3 * $drowDownItemHeight;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
     
-    
+    .dropDownItem{
+        border: 1px solid $darkRed;
+        @include size($dropDownItemWidth, $drowDownItemHeight);
+        text-indent: .5em;
+        text-align: left;    
+        background-image: url("https://i.imgur.com/In3KF4a.png"), linear-gradient($white, $white);;
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: 50px auto, cover; 
+        span{
+            line-height:$drowDownItemHeight;
+            color: $grey;
+        }
+
+        &:hover{
+            .dropDownList{
+                display: block;
+                background-color: $lightGrey;
+                border: 1px solid $darkRed;
+
+            }
+            span{
+                color: $red;
+            }
+        }
+       
+    }
+    .dropDownList{
+        display: none;
+
+        p{
+            &:hover{
+                color: $white;
+                background-color: $darkRed;
+                
+                &:before{
+                    content: '✔ ';    
+                } 
+            }
+        }
+    }
+    button{
+        @include size($dropDownItemWidth, $drowDownItemHeight);
+        background-color: $darkRed;
+        color: $white;
+        border: 0px;
+    }
+}
+
+.activityPic{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding-top: 5rem;
+    .item{
+        margin: 3rem 2rem;   
+    }
+    img{
+        @include size(15rem, auto);
+        border: 8px solid $white;
+        outline: 1px solid $grey;
+        margin: 1rem 0rem;
+    }
+    $fontSize: 1.5rem;
+    p {
+        text-align: center;
+        font-size: $fontSize;
+    }
+    .content{
+        color: $grey;
+        font-size: $fontSize * 0.8;
+    }
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    #bigPic{
+        grid-column: span 2;
+        background-image: url('https://i.imgur.com/bWJAsW6.jpg');
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: 70rem auto;
+        height: 25rem;
+        font-size: 1rem;
+        color: $white;
+        text-align: center;
+        position: relative;
+        .text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -10rem;
+            margin-left: -11rem;
+            
+        }
+        p:nth-child(1){
+            font-size: 4rem;
+        }
+        p:nth-child(2){
+            font-size: 9rem;
+        }
+    }
+    .info{
+        background-color: $white;
+        position: relative;
+        .text{
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -8rem;
+            margin-left: -10rem;
+            width: 20rem;
+        }
+        .title{
+            font-size: 1.5rem;
+            margin: 1rem 1rem;
+            color: $black;
+        }
+        .content{
+            font-size: 0.8rem;
+            color: $grey;
+            line-height: 1.9rem;
+            margin: 1rem 1rem;
+        }
+        .square{
+            @include size(10rem, 2rem);
+            background-color: $white;
+            color: $red;
+            border: 1px solid $red;
+            margin: 1rem 1rem;
+        }
+        
+        .circle {
+            width: 18px;
+            height: 18px;
+            box-sizing: border-box;
+            display: inline-block;
+            border: 1px solid $red;
+            vertical-align: middle;
+            margin: 0 15px 0 3px;
+            border-radius: 50%;
+            &:hover {
+                background-color: $grey;
+                padding: 2px;
+                background-color: $red;
+                background-clip: content-box;
+            }
+        }
+        input[type="radio"]:checked+.circle {
+            background-color: $red;
+        }
+    }
 }

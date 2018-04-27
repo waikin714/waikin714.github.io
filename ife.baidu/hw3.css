@@ -7,7 +7,8 @@
 body {
 	font-size: 14px;
 	margin: 20px;
-
+	min-width: 710px;
+	
 	
 }
 
@@ -42,8 +43,9 @@ span {
 	vertical-align: top;
 }
 .main{
-	width: calc(100% - 200px - 120px - 40px);
+	width: calc(100% - 200px - 120px - 60px);
 	padding: 20px;
+	margin: 0px 20px;
 	min-width: 200px;
 }
 .right{
