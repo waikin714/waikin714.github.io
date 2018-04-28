@@ -1,0 +1,23 @@
+@mixin size($width, $height){
+    width: $width;
+    height: $height;
+}
+@mixin pos($top, $left){
+    top: $top;
+    left: $left;
+}
+@mixin littleUnderline($underlineColor){
+    margin: 5% 0% 0% 0%;
+    position: absolute;
+    top:100%;
+    left: 40%;
+    content: "";
+    width: 20%;
+    border: 1px solid $underlineColor;
+}
+
+@mixin textStyle($size, $color){
+    font-size: $size;
+    line-height: $size;
+    color: $color;
+}
