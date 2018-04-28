@@ -371,7 +371,9 @@ header{
 .register{
     position: relative;
     top: 0px;
-    @include size(100%, 100%);
+    @include size(100%, 35rem);
+    overflow: auto;
+
     .flex{
         position: absolute;
         @include pos(5rem, 10%);
