@@ -1,0 +1,85 @@
+@import 'wkCss';
+@mixin size($width, $height){
+    width: $width;
+    height: $height;
+}
+@mixin pos($top, $left){
+    top: $top;
+    left: $left;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+$betwSmAndMd: 768px;
+$margin: 20px;
+.container{
+    .item{
+        display: inline-block;
+        border: 1px solid #999;
+        background-color: #eee;
+        margin: $margin;
+        height: 50px;
+    }
+}
+@mixin width($colNum){
+    width: calc(100% * #{$colNum} / 12 - 2 * #{$margin} - 2 * 3px);
+}
+@media only screen and (max-width: $betwSmAndMd) {
+    .col-sm-2{
+        @include width(2);
+    }
+    .col-sm-3{
+        @include width(3);
+    }
+    .col-sm-6{
+        @include width(6);
+    }
+    .col-sm-8{
+        @include width(8);
+    }
+    .col-sm-12{
+        @include width(12);
+    }
+}
+@media only screen and (min-width: $betwSmAndMd) {
+    .col-md-1{
+        @include width(1);
+    }
+    .col-md-2{
+        @include width(2);
+    }
+    .col-md-3{
+        @include width(3);
+    }
+    .col-md-4{
+        @include width(4);
+        //width: calc(100% * 4 / 12 - 2 * #{$margin} - 2 * 2px);
+    }
+    .col-md-5{
+        width: 100% * 5 / 12;
+    }
+    .col-md-6{
+        @include width(6);
+    }
+    .col-md-7{
+        width: 100% * 7 / 12;
+    }
+    .col-md-8{
+        width: 100% * 8 / 12;
+    }
+    .col-md-9{
+        width: 100% * 9 / 12;
+    }
+    .col-md-10{
+        width: 100% * 10 / 12;
+    }
+    .col-md-11{
+        width: 100% * 11 / 12;
+    }
+    .col-md-12{
+        width: 100% * 12 / 12;
+    }
+}
