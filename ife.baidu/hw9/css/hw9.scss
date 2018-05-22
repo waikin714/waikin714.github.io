@@ -1,0 +1,23 @@
+@mixin size($width, $height){
+    width: $width;
+    height: $height;
+}
+@mixin pos($top, $left){
+    top: $top;
+    left: $left;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+$lightGrey: #383d4f;
+.leftBar_item{
+    &:visited{
+        background-color: $lightGrey;
+    }
+    &:active{
+        color: white;
+    }
+}

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAQA,CAAC;EACG,MAAM,EAAE,GAAG;EACX,OAAO,EAAE,GAAG;EACZ,UAAU,EAAE,UAAU;;AAKtB,qBAAS;EACL,gBAAgB,EAHZ,OAAO;AAKf,oBAAQ;EACJ,KAAK,EAAE,KAAK",
+"sources": ["hw9.scss"],
+"names": [],
+"file": "hw9.css"
+}

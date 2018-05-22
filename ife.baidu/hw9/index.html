@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>任務九：使用HTML/CSS實現一個復雜頁面</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/hw9.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-light bg-primary">
+		<a class="navbar-brand text-light" href="#">
+			<h2><i class="fab fa-trello" ></i></h2>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+		</ul>
+		<form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2 rounded" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn my-2 my-sm-0 btn-light" type="submit">
+				<i class="fas fa-user-alt"></i>
+			</button>
+		</form>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 bg-black p-0">
+			<div class="bg-dark py-3">
+				<div class="d-inline-block text-center">
+					<img src="./pic/newyork.jpg" class="rounded-circle w-25 border border-light" alt="Cinque Terre">
+					<span class="text-light ml-3">ABC123</span>	
+				</div>
+				<div class="d-flex justify-content-around">
+					<button type="button" class="btn btn-dark">
+						<span class="badge text-secondary">110</span>
+						<br>
+						<span class="text-secondary">收藏</span>
+					</button>
+					<button type="button" class="btn btn-dark">
+						<span class="badge text-secondary">313</span>
+						<br>
+						<span class="text-secondary">粉絲</span>
+					</button>
+				</div>
+			</div>
+
+			<nav class="navbar flex-column navbar-light bg-dark w-100 px-0">
+				<a class="btn text-white-50 d-block w-100 leftBar_item" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+					<i class="fas fa-wallet"> 個人報表</i>
+				</a>
+				<div id="collapseExample" class="collapse">
+					<nav class="navbar flex-column navbar-light bg-dark">
+						<a class="btn text-white-50 d-block w-100 leftBar_item" data-toggle="collapse" href="#folder1" role="button" aria-expanded="false" aria-controls="folder1">
+							<i class="fas fa-folder-open">文件一</i>
+						</a>
+						<div id="folder1" class="collapse">
+							<nav class="navbar flex-column navbar-light bg-dark">
+								<a class="btn text-white-50 d-block w-100 leftBar_item"><i class="fas fa-file">文檔1</i></a>
+								<a class="btn text-white-50 d-block w-100 leftBar_item"><i class="fas fa-file">文檔2</i></a>
+							</nav>
+						</div>
+						<a class="btn text-white-50 d-block w-100 leftBar_item" data-toggle="collapse" href="#folder2" role="button" aria-expanded="false" aria-controls="folder2">
+							<i class="fas fa-folder-open">文件二</i>
+						</a>
+						<div id="folder2" class="collapse">
+							<nav class="navbar flex-column navbar-light bg-dark">
+								<a class="btn text-white-50 d-block w-100 leftBar_item"><i class="fas fa-file">文檔1</i></a>
+								<a class="btn text-white-50 d-block w-100 leftBar_item"><i class="fas fa-file">文檔2</i></a>
+							</nav>
+						</div>
+						<a class="btn text-white-50 d-block w-100 leftBar_item" data-toggle="collapse" href="#folder3" role="button" aria-expanded="false" aria-controls="folder3">
+							<i class="fas fa-folder-open">文件三</i>
+						</a>
+						<div id="folder3" class="collapse">
+							<nav class="navbar flex-column navbar-light bg-dark">
+								<a class="btn text-white-50 d-block w-100 leftBar_item"><i class="fas fa-file">文檔1</i></a>
+								<a class="btn text-white-50 d-block w-100 leftBar_item"><i class="fas fa-file">文檔2</i></a>
+							</nav>
+						</div>
+					</nav>
+				</div>
+				<a class="btn text-white-50 d-block w-100 leftBar_item"><i class="fas fa-star"> 個人收藏</i></a>
+				<a class="btn text-white-50 d-block w-100 leftBar_item"><i class="fas fa-share-square"> 我的分享</i></a>
+				<a class="btn text-white-50 d-block w-100 leftBar_item"><i class="fas fa-star"> 圖庫</i></a>
+				<a class="btn text-white-50 d-block w-100 leftBar_item"><i class="fas fa-star"> 成長記錄</i></a>
+				<a class="btn text-white-50 d-block w-100 leftBar_item"><i class="fas fa-user-circle"> 帳戶信息</i></a>
+			</nav>
+		</div>
+		<div class="col-sm-9 bg-light px-0">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb bg-white w-105">
+					<li class="breadcrumb-item"><a href="#">主頁</a></li>
+					<li class="breadcrumb-item"><a href="#">個人報表</a></li>
+					<li class="breadcrumb-item"><a href="#">文件一</a></li>
+					<li class="breadcrumb-item active" aria-current="page">文檔一</li>
+				</ol>
+			</nav>
+
+			<div class="d-flex flex-column align-items-center">
+				<div class="d-flex">
+					<div class="card">
+						<div class="card-body">
+							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							<a href="#" class="btn btn-primary">Go somewhere</a>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-body">
+							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							<a href="#" class="btn btn-primary">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="card w-75">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+

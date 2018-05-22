@@ -1,0 +1,11 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; }
+
+.leftBar_item:visited {
+  background-color: #383d4f; }
+.leftBar_item:active {
+  color: white; }
+
+/*# sourceMappingURL=hw9.css.map */
