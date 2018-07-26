@@ -1,0 +1,67 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>IFE JavaScript Task 04</title>
+	<style>
+		.item{
+			margin:5px;
+		}
+	</style>
+</head>
+<body>
+	<input id="input"></input>
+	<button onclick="leftAdd()">左側入</button>
+	<button onclick="rightAdd()">右側入</button>
+	<button onclick="leftRemove()">左側出</button>
+	<button onclick="rightRemove()">右側出</button>
+	<div id="result" style="display:flex;">
+		<div class="item">1</div>
+	</div>
+	<script type="text/javascript">
+		function checkInput(){
+			var text = document.getElementById("input").value;
+			return text == ""? false: text;
+		}
+		function cleanText() {
+			document.getElementById("input").value = "";
+		}
+		function leftAdd(){
+			add("left");
+			cleanText();
+		}
+		function rightAdd(){
+			add("right");
+			cleanText();
+		}
+		function add(direction){
+			var text = checkInput();
+			if (text == false) return;
+			var newNode = document.createElement("div");
+			newNode.innerText = text;
+			newNode.className = "item";
+			var parentNode = document.getElementById("result");
+			if (direction === "left"){
+				parentNode.insertBefore(newNode, parentNode.firstChild);
+			}else if (direction === "right"){
+				parentNode.insertBefore(newNode, null);
+			}
+		}
+		function leftRemove() {
+			remove("left");
+		}
+		function rightRemove() {
+			remove("right");
+		}
+		function remove(direction){
+			var parentNode = document.getElementById("result");
+			if (direction === "left"){
+				parentNode.removeChild(parentNode.firstChild);
+			}else if (direction === "right"){
+				parentNode.removeChild(parentNode.lastChild);
+			}
+
+		}
+	</script>
+</body>
+</html>
