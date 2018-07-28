@@ -1,0 +1,135 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>IFE JavaScript Task 05</title>
+	<style>
+	#input{
+		width: 10rem;
+	}
+	.graphNode{
+		background: red;
+		border: 1px solid black;
+		width: 20px;
+	}
+	#graph{
+		display:flex; 
+		flex-direction: row; 
+		align-items: flex-end;
+		margin: 10px;
+	}
+	#result{
+		display:flex; 
+		flex-wrap: wrap;
+	}
+</style>
+</head>
+<body>
+	<input id="input" placeholder="請輸入>=10, <=100的數字"></input><br>
+	<button onclick="leftAdd()">左側加入</button>
+	<button onclick="rightAdd()">右側加入</button>
+	<button onclick="leftRemove()">左側移除</button>
+	<button onclick="rightRemove()">右側移除</button>
+	<div id="graph"></div>
+	<button onclick="sort()">排序</button>
+
+	<script type="text/javascript">
+		var parentNode = document.getElementById("graph");
+
+		(function(){
+			var graphParentNode = document.getElementById("graph");
+			graphParentNode.style.height = 150;
+
+			// init
+			for(var i = 0; i < 20; i++){
+				var val = Math.floor(Math.random() * (100 - 10) + 10);
+				add("left", val);
+			}
+
+			
+		})();
+
+		function checkInput(){
+			var text = document.getElementById("input").value;
+			return text == ""? false: text;
+		}
+		function cleanText() {
+			document.getElementById("input").value = "";
+		}
+		function leftAdd(){
+			addProxy("left");
+			cleanText();
+		}
+		function rightAdd(){
+			addProxy("right");
+			cleanText();
+		}
+		function addProxy(direction){
+			// check data
+			var text = checkInput();
+			if (text == false) return;
+			if (text < 10 || text > 100) return;
+			if (parentNode.childNodes.length >= 60){
+				alert("資料不可超出60個");
+				return;
+			}
+			add(direction, text);
+		}
+		function add(direction, num){
+			// create and set new div
+			var newTextNode = document.createElement("div");
+			newTextNode.innerText = num;
+			newTextNode.className = "textNode";
+
+			// create new graph div
+			var newGraphNode = document.createElement("div");
+			newGraphNode.className = "graphNode";
+			newGraphNode.style.height = num;
+
+			var newSetNode = document.createElement("div");
+			newSetNode.insertBefore(newTextNode, null);
+			newSetNode.insertBefore(newGraphNode, null);
+
+			// insert new node
+			if (direction === "left"){
+				parentNode.insertBefore(newSetNode, parentNode.firstChild);
+			}else if (direction === "right"){
+				parentNode.insertBefore(newSetNode, null);
+			}
+		}
+		function leftRemove() {
+			remove("left");
+		}
+		function rightRemove() {
+			remove("right");
+		}
+		function remove(direction){
+			if (direction === "left"){
+				parentNode.removeChild(parentNode.firstChild);
+			}else if (direction === "right"){
+				parentNode.removeChild(parentNode.lastChild);
+			}
+
+		}
+		async function sort(){
+			for(var ind = 0; ind < parentNode.childNodes.length; ind++){
+				for(var ind2 = 1; ind2 < parentNode.childNodes.length; ind2++){
+					var subNode = parentNode.childNodes[ind2 - 1];
+					var subNode2 = parentNode.childNodes[ind2];
+					var subVal = subNode.firstChild.innerText;
+					var subVal2 = subNode2.firstChild.innerText;
+					if (parseInt(subVal) > parseInt(subVal2)){
+						// exchange two node
+						parentNode.removeChild(subNode2);
+						parentNode.insertBefore(subNode2, subNode);
+						await sleep(300);
+					}
+				}
+			}
+		}
+		function sleep(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		}
+	</script>
+</body>
+</html>
