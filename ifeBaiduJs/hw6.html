@@ -1,0 +1,101 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>IFE JavaScript Task 06</title>
+	<style>
+		.item{
+			margin:5px;
+		}
+		#input{
+			width: 20rem;
+			height: 5rem;
+		}
+	</style>
+</head>
+<body>
+	<textarea id="input" placeholder="允許一次批量輸入多個內容，格式可以為數字、中文、英文等，可以通過用回車，逗號（全角半角均可），頓號，空格（全角半角、Tab等均可）等符號作為不同內容的間隔"></textarea><br>
+	<button onclick="leftAdd()">左側入</button>
+	<button onclick="rightAdd()">右側入</button>
+	<button onclick="leftRemove()">左側出</button>
+	<button onclick="rightRemove()">右側出</button>
+	<div id="result" style="display:flex;"></div>
+	<label>查詢文字：</label><input type="text" id="searchText"></input>
+	<button id="search">查詢</button>
+
+	<script type="text/javascript">
+		var itemName = "item";
+
+		(function(){
+			document.getElementById("search").addEventListener("click", function(){
+				var text;
+				if ((text = checkNull("searchText")) == false) return false;
+				var itemArr = document.getElementsByClassName(itemName);
+				for (var ind = 0; ind < itemArr.length; ind++){
+					if (itemArr[ind].innerHTML.search(text) > -1){
+						itemArr[ind].style.backgroundColor = "red";
+					}else{
+						itemArr[ind].style.backgroundColor = "";
+					}
+				}
+			});
+
+			
+		})();
+		function checkNull(tagName){
+			var text = document.getElementById(tagName).value;
+			return text == ""? false: text;
+		}
+		function cleanText() {
+			document.getElementById("input").value = "";
+		}
+		function leftAdd(){
+			add("left");
+			cleanText();
+		}
+		function rightAdd(){
+			add("right");
+			cleanText();
+		}
+		function add(direction){
+			// check text
+			var text = checkNull("input");
+			if (text == false) return;
+
+			// parse text
+			var inputText = document.getElementById("input");
+			var itemArray = inputText.value.split(new RegExp("[\n,，、 \t]"));
+
+			for (var ind = 0; ind < itemArray.length; ind++){
+				// add text
+				var newNode = document.createElement("div");
+				newNode.innerText = itemArray[ind];
+				newNode.className = itemName;
+				var parentNode = document.getElementById("result");
+				if (direction === "left"){
+					parentNode.insertBefore(newNode, parentNode.firstChild);
+				}else if (direction === "right"){
+					parentNode.insertBefore(newNode, null);
+				}
+			}
+
+			
+		}
+		function leftRemove() {
+			remove("left");
+		}
+		function rightRemove() {
+			remove("right");
+		}
+		function remove(direction){
+			var parentNode = document.getElementById("result");
+			if (direction === "left"){
+				parentNode.removeChild(parentNode.firstChild);
+			}else if (direction === "right"){
+				parentNode.removeChild(parentNode.lastChild);
+			}
+
+		}
+	</script>
+</body>
+</html>
