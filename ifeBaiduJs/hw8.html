@@ -1,0 +1,107 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>IFE JavaScript Task 08</title>
+	<style>
+		.box{
+			border: 1px solid black;
+			width: auto;
+			height: 80%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 2px;
+			background-color: white;
+		}
+		#parent{
+			height: 10rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="parent">Super
+		<div class="box">Dad
+			<div class="box">Apple
+				<div class="box">Pear</div>
+				<div class="box">Pig</div>
+				<div class="box">Cola</div>
+				<div class="box">Soccer</div>
+			</div>
+			<div class="box">Phone</div>
+			<div class="box">
+				<div class="box">Book</div>
+				<div class="box">School</div>
+			</div>
+		</div>
+		<div class="box">Nate
+			<div class="box">Human
+				<div class="box">Code</div>
+				<div class="box">Operate</div>
+				<div class="box">Man</div>
+			</div>
+			<div class="box">Program
+				<div class="box">Bement
+					<div class="box">Cat</div>
+				</div>
+				<div class="box">Glass</div>
+			</div>
+		</div>
+		<div class="box">Fish</div>
+	</div>
+	<span>遍歷方式：</span>
+	<button id="mlr">根左右</button><br>
+	<label>搜尋內容：</label><input type="text" id="text"></input>
+	<button id="search">Search</button>
+
+	<script type="text/javascript">
+		var searchType = "";
+		document.getElementById("mlr").addEventListener("click", function(){
+			var parent = document.getElementById("parent");
+			travers("mlr", parent);
+			searchType = "mlr";
+		});
+		
+		document.getElementById("search").addEventListener("click", async function(){
+			var parent = document.getElementById("parent");
+			var searchText = document.getElementById("text").value;
+			travers.__proto__.found = false;
+			await travers(searchType, parent, searchText);
+			if (searchText != undefined && travers.__proto__.found == false){
+				alert("cannot found " + searchText);
+			}
+			travers.__proto__.isFound = false;
+		});
+
+		async function travers(order, boxObject, searchText){
+			
+			if (boxObject == null) return;
+
+			boxObject.style.backgroundColor = "blue";
+
+			var findThisTime = false;
+			if (searchText === boxObject.innerText.split("\n", 1)[0]){
+				boxObject.style.backgroundColor = "red";
+				travers.__proto__.found = true;
+				findThisTime = true;
+			}
+			if (findThisTime === false){
+				await sleep(500);
+				boxObject.style.backgroundColor = "";	
+			}
+
+			for(var i = 0; i < boxObject.children.length; i++){
+				await travers(order, boxObject.children[i], searchText);	
+			}
+		
+
+			
+
+		}
+		function sleep(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		}
+
+	</script>
+</body>
+</html>
